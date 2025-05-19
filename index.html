@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMSVE - Om Sai Vaibhav Enterprises</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background-color 0.3s;
+    }
+
+    header.scrolled {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #ffde59;
+      margin: 10px 0;
+    }
+
+    header img.logo {
+      width: 90px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      margin-top: 15px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      color: #ffde59;
+    }
+
+    .carousel {
+      position: relative;
+      height: 450px;
+      overflow: hidden;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel img.active {
+      opacity: 1;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #ffde59;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+
+    li:hover {
+      transform: scale(1.05);
+    }
+
+    .counters {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 40px;
+    }
+
+    .counter {
+      text-align: center;
+      font-size: 1.3rem;
+    }
+
+    .counter span {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ffde59;
+    }
+
+    .testimonials {
+      margin-top: 40px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .testimonial {
+      margin-bottom: 20px;
+      font-style: italic;
+      border-left: 4px solid #ffde59;
+      padding-left: 12px;
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-top: 5px;
+      font-style: normal;
+      color: #ffde59;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    input,
+    textarea {
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid #ffde59;
+    }
+
+    button {
+      background-color: #ffde59;
+      color: #000;
+      border: none;
+      padding: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffd700;
+    }
+
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+      margin-top: 30px;
+      border-radius: 12px;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.3);
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    .social a {
+      margin: 0 15px;
+      font-size: 2rem;
+      color: white;
+      transition: transform 0.3s;
+    }
+
+    .social a:hover {
+      transform: scale(1.3);
+      color: #ffde59;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .counters {
+        flex-direction: column;
+        gap: 25px;
+      }
+
+      .carousel img {
+        height: 250px;
+      }
+    }
+
+    /* Smooth scrolling for sections */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header id="header">
+    <img src="https://i.postimg.cc/NFs1jP6f/company-Logo.jpg" alt="OMSVE Logo" class="logo" />
+    <h1>OMSVE</h1>
+    <p>Om Sai Vaibhav Enterprises</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#companies">Companies</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Carousel for Materials -->
+  <div class="carousel">
+    <img src="https://i.postimg.cc/vm5ZQwwB/Slide1.jpg" alt="Material 1" class="active">
+    <img src="https://i.postimg.cc/3JWrkvQz/slide2.jpg" alt="Material 2">
+    <img src="https://i.postimg.cc/FHL9ZXRZ/slide3.jpg" alt="Material 3">
+    <img src="https://i.postimg.cc/LXNRXHCH/slide4.jpg" alt="Material 4">
+    <img src="https://i.postimg.cc/KvKFGhn2/slide5.jpg" alt="Material 5">
+    <img src="https://i.postimg.cc/xdQS3kBf/slide6.jpg" alt="Material 6">
+    <img src="https://i.postimg.cc/T1s6VtvF/slide7.jpg" alt="Material 7">
+  </div>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p><strong>OMSVE (Om Sai Vaibhav Enterprises)</strong> is a trusted name in engineering solutions. Established in 2013, we specialize in delivering precision-driven fabrication, mechanical equipment manufacturing, and customized process systems.</p>
+    <p>Our expertise spans industries, providing durable, efficient, and safe industrial solutions across India. Based in Ambernath, Mumbai, we uphold a strong commitment to quality, customer satisfaction, and technical excellence.</p>
+
+    <div class="counters">
+      <div class="counter">
+        <span>10+</span>
+        Years of Service
+      </div>
+      <div class="counter">
+        <span>500+</span>
+        Projects Completed
+      </div>
+      <div class="counter">
+        <span>100%</span>
+        Client Satisfaction
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li><strong>Bag Filter:</strong> Efficient dust collection and air pollution control systems.</li>
+      <li><strong>Reactor:</strong> Precision manufacturing of reactors for chemical processes.</li>
+      <li><strong>Air Receiver:</strong> Compressed air storage solutions built for performance.</li>
+      <li><strong>Pipe Bend:</strong> Custom-designed pipe bends in multiple configurations.</li>
+      <li><strong>Tube Heat Exchanger:</strong> Heat transfer systems designed for industrial needs.</li>
+      <li><strong>All-in Tank Solutions:</strong> Design and fabrication of storage and pressure tanks.</li>
+    </ul>
+  </section>
+
+  <!-- Companies Section -->
+  <section id="companies">
+    <h2>Companies We Work With</h2>
+    <ul>
+      <li>Macawber Engineering System India Pvt Ltd</li>
+      <li>SBS Enviro Equipment India Pvt Ltd</li>
+      <li>Munters Enterprises</li>
+      <li>RK Industries Automation</li>
+      <li>Mark Engineering</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><strong>Mr. Rajesh Singh</strong></p>
+    <p>📞 <a href="tel:8855993606" style="color: white; text-decoration: underline;">8855993606</a></p>
+    <p>📧 <a href="mailto:Omsaivaibhav11@gmail.com" style="color: white; text-decoration: underline;">Omsaivaibhav11@gmail.com</a></p>
+    <p>📍 Ambernath, Mumbai</p>
+
+    <form action="#" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60309.7964371936!2d73.14612596041349!3d19.1983877986217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b2003b635953%3A0x9b1a609ee98e080a!2sAmbernath%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1646215465733!5m2!1sen!2sin" width="600" height="450"></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Om Sai Vaibhav Enterprises. All rights reserved.</p>
+    <div class="social">
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    const carouselImages = document.querySelectorAll('.carousel img');
+    let currentIndex = 0;
+
+    setInterval(() => {
+      carouselImages[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % carouselImages.length;
+      carouselImages[currentIndex].classList.add('active');
+    }, 3000);
+
+    // Add scroll event for header color change
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+</body>
+
+</html>
